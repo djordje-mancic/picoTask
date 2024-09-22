@@ -1,0 +1,128 @@
+﻿<!--
+Copyright 2024 Đorđe Mančić
+This file is part of picoTask.
+
+picoTask is free software: you can redistribute it and/or modify it under the terms 
+of the GNU General Public License as published by the Free Software Foundation, 
+either version 3 of the License, or (at your option) any later version.
+
+picoTask is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with picoTask. 
+If not, see <https://www.gnu.org/licenses/>. 
+-->
+<ui:FluentWindow x:Class="picoTask.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:picoTask"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        mc:Ignorable="d"
+        Title="Settings" Height="450" Width="800" WindowBackdropType="Mica" 
+        ExtendsContentIntoTitleBar="True" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ui:TitleBar Title="Settings" ShowMaximize="False" CanMaximize="False" Grid.Row="0"/>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="32,0,32,32">
+                <ui:TextBlock FontTypography="Title" Margin="0,8">
+                    Macro playback settings
+                </ui:TextBlock>
+                <ui:Card Margin="0,8" Padding="16">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                            <ui:SymbolIcon Symbol="Rocket16" FontSize="18" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                            <ui:TextBlock VerticalAlignment="Center">
+                                Playback speed
+                            </ui:TextBlock>
+                        </StackPanel>
+                        <RadioButton Content="50%" x:Name="PlaybackSpeed50Button"/>
+                        <RadioButton Content="100% (default)" x:Name="PlaybackSpeed100Button"/>
+                        <RadioButton Content="200%" x:Name="PlaybackSpeed200Button"/>
+                        <RadioButton Content="400%" x:Name="PlaybackSpeed400Button"/>
+                        <RadioButton Content="800%" x:Name="PlaybackSpeed800Button"/>
+                    </StackPanel>
+                </ui:Card>
+                <ui:Card Margin="0,8" Padding="16">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="ArrowRepeatAll16" FontSize="18" Margin="0, 0, 8, 0" VerticalAlignment="Center"/>
+                            <ui:TextBlock Margin="0,0,0,0" VerticalAlignment="Center">
+                                Repeat playback until stopped
+                            </ui:TextBlock>
+                        </StackPanel>
+
+                        <ui:ToggleSwitch x:Name="RepeatPlaybackSwitch" HorizontalAlignment="Right"/>
+                    </Grid>
+                </ui:Card>
+
+                <ui:TextBlock FontTypography="Title" Margin="0,8">
+                    General settings
+                </ui:TextBlock>
+                <ui:Card Margin="0,8" Padding="16">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="PaddingTop20" FontSize="18" Margin="0, 0, 8, 0" VerticalAlignment="Center"/>
+                            <ui:TextBlock Margin="0,0,0,0" VerticalAlignment="Center">
+                                Show above other windows
+                            </ui:TextBlock>
+                        </StackPanel>
+
+                        <ui:ToggleSwitch x:Name="AlwaysOnTopSwitch" HorizontalAlignment="Right"/>
+                    </Grid>
+                </ui:Card>
+                <ui:TextBlock FontTypography="Title" Margin="0,8">About program</ui:TextBlock>
+                <ui:CardExpander Margin="0,8">
+                    <ui:CardExpander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/picoTask.png" Height="48px" RenderOptions.BitmapScalingMode="HighQuality" Margin="0,0,12,0"/>
+                            <StackPanel VerticalAlignment="Center">
+                                <ui:TextBlock Margin="0,0,0,0" VerticalAlignment="Center">
+                                    picoTask
+                                </ui:TextBlock>
+                                <ui:TextBlock FontTypography="Caption" Margin="0,0,0,0" VerticalAlignment="Center">
+                                    Version 1.0.0
+                                </ui:TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </ui:CardExpander.Header>
+                    <ui:CardExpander.Content>
+                        <StackPanel>
+                            <ui:TextBlock FontTypography="Body" Margin="0,0,0,8">Copyright © 2024 Đorđe Mančić</ui:TextBlock>
+                            <ui:HyperlinkButton Icon="{ui:SymbolIcon Symbol=Link20}" NavigateUri="https://github.com/djordje-mancic/picoTask">
+                                GitHub repository (source code)
+                            </ui:HyperlinkButton>
+                            <ui:RichTextBox Margin="0,8,0,8" Padding="16" IsReadOnly="True">
+                                <FlowDocument>
+                                    <Paragraph>
+                                        This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+                                    </Paragraph>
+                                    <Paragraph>
+                                        This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+                                    </Paragraph>
+                                    <Paragraph>
+                                        You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
+                                    </Paragraph>
+                                </FlowDocument>
+                            </ui:RichTextBox>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:HyperlinkButton Icon="{ui:SymbolIcon Symbol=Document24}" NavigateUri="https://www.gnu.org/licenses/">
+                                    GNU General Public License
+                                </ui:HyperlinkButton>
+                                <ui:HyperlinkButton Icon="{ui:SymbolIcon Symbol=Document24}" NavigateUri="https://github.com/lepoco/wpfui/blob/main/LICENSE">
+                                    WPF UI License
+                                </ui:HyperlinkButton>
+                            </StackPanel>
+                        </StackPanel>
+                    </ui:CardExpander.Content>
+                </ui:CardExpander>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ui:FluentWindow>

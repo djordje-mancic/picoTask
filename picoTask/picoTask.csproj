@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <Version>1.0.0</Version>
+    <ApplicationIcon>Assets\picoTask.ico</ApplicationIcon>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <Authors>Đorđe Mančić</Authors>
+    <Copyright>Đorđe Mančić</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\picoTask.ico" />
+    <None Remove="Assets\picoTask.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WPF-UI" Version="3.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\picoTask.ico" />
+    <Resource Include="Assets\picoTask.png" />
+  </ItemGroup>
+
+</Project>
