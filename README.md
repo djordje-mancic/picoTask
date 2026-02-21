@@ -16,6 +16,10 @@ hence the name picoTask.
 - Control playback speed and repeat settings
 - Works seamlessly with inputs in almost every program
 
+## Pro Hotkey Tips
+Pressing F9 will also start the macro without needing to Alt-Tab 😉
+Pressing F8 will record a macro and stop recording a macro
+
 ## Contributing
 Feel free to contribute your fixes and improvements to this program
 by submitting a pull request - I'd be more than happy to review and 
